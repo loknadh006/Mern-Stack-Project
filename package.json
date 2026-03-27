@@ -1,27 +1,15 @@
 {
   "name": "mern-stack-course",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "dev": "node backend/server.js",
-    "start": "node backend/server.js"
+    "backend:dev": "npm --prefix backend run dev",
+    "backend:start": "npm --prefix backend run start",
+    "frontend:dev": "npm --prefix Frontend run dev",
+    "frontend:build": "npm --prefix Frontend run build"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "bcryptjs": "^3.0.3",
-    "cors": "^2.8.5",
-    "dotenv": "^16.6.1",
-    "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.3",
-    "mongodb": "^6.18.0",
-    "mongoos": "^0.0.1-security",
-    "mongoose": "^8.16.4"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.10"
-  }
+  "description": ""
 }

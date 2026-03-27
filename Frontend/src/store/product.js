@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { API_BASE_URL } from "../config";
 
 export const useProductStore = create((set) => ({
   products: [],
@@ -19,7 +20,7 @@ export const useProductStore = create((set) => ({
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/products', {
+      const res = await fetch(`${API_BASE_URL}/api/products`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +54,7 @@ export const useProductStore = create((set) => ({
     set({ loading: true });
 
     try {
-      const res = await fetch('http://localhost:5000/api/products');
+      const res = await fetch(`${API_BASE_URL}/api/products`);
       const data = await res.json();
       set({ products: data.data });
     } catch (error) {
@@ -70,7 +71,7 @@ export const useProductStore = create((set) => ({
     try {
       const token = localStorage.getItem('token');
       const res = await fetch(
-        `http://localhost:5000/api/products/${pid}`,
+        `${API_BASE_URL}/api/products/${pid}`,
         {
           method: 'DELETE',
           headers: {
@@ -105,7 +106,7 @@ export const useProductStore = create((set) => ({
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/products/${pid}`, {
+      const res = await fetch(`${API_BASE_URL}/api/products/${pid}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
